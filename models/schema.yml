@@ -39,3 +39,18 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+
+  - name: orders
+    description: This model cleans up order data
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: usd_amt
+        tests:
+          - not_null
